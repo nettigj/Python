@@ -1,0 +1,43 @@
+Napište program, který přijme od uživatele z klávesnice text. Tento text přeloží všemi předpřipravenými slovníky v seznamu slovníků (např.: z češtiny do angličtiny, němčiny, španělštiny, atd.). Každý z překladů se vypíše na obrazovku. Algoritmus překladu neopakujte, ale vyřešte ho cyklem přes všechny slovníky v seznamu slovníků.
+
+
+text = input("Napište text: ")
+
+slovniky = {
+  "angličtina": {
+    "ahoj": "Hello",
+    "jméno": "name",
+    "bydlím": "live",
+    "a": "and",
+    "moje": "my",
+    "je": "is",
+    "v": "in",
+  },
+  "němčina": {
+    "ahoj": "Hallo",
+    "jméno": "Name",
+    "bydlím": "wohne",
+    "a": "und",
+    "moje": "mein",
+    "je": "ist",
+    "v": "in",
+  },
+  "španělština": {
+    "ahoj": "Hola",
+    "jméno": "nombre",
+    "bydlím": "vivo",
+    "a": "y",
+    "moje": "mi",
+    "je": "es",
+    "v": "en",
+  },
+}
+
+for jazyk, slovnik in slovniky.items():
+  preklad_textu = ""
+  for slovo in text.split():
+    if slovo.lower() in slovnik.keys():
+      preklad_textu += slovnik[slovo.lower()] + " "
+    else:
+      preklad_textu += slovo + " "
+  print(f"{jazyk}: {preklad_textu}")
