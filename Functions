@@ -1,0 +1,35 @@
+Napište program ktory vytvorí jednoduchou matematickou kvízovou hru. Hra bude hráči předkládat matematické úkoly, počítat jejich skóre a poskytovat zpětnou vazbu na jejich výkon.
+
+def main():
+
+  print("Vítejte v matematické kvízové hře!")
+
+  otazky = [
+    ("Kolik je 4 + 6?", 10),
+    ("Kolik je 8 - 3?", 5),
+    ("Kolik je 2 * 9?", 18),
+    ("Kolik je 7 + 2?", 9),
+    ("Kolik je 5 - 1?", 4),
+  ]
+
+  skore = 0
+
+
+  for i, (otazka, spravna_odpoved) in enumerate(otazky, 1):
+    print(f"Otázka {i}: {otazka}")
+    odpoved = int(input("Zadejte svou odpověď: "))
+
+
+    if odpoved == spravna_odpoved:
+      print("Správně!")
+      skore += 1
+    else:
+      print(f"Špatně. Správná odpověď je {spravna_odpoved}.")
+
+
+  print(f"Vaše skóre: {skore}/{len(otazky)}")
+  if skore == len(otazky):
+    print("Skvělá práce!")
+
+if __name__ == "__main__":
+  main()
