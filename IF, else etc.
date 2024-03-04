@@ -1,0 +1,51 @@
+1. Napište program, který umožňuje zahrát si uživateli proti počítači hru kámen nůžky papír. Hra požádá uživatele o zadání svého výběru. Počítač volí svůj výběr zcela náhodně.
+
+
+import random
+symboly = ["kámen", "nůžky", "papír"]
+
+symbol_hrac = input(f"Hrac1: zvol symbol {symboly}: ")
+
+symbol_pocitac = random.choice(symboly)
+
+if symbol_hrac not in symboly:
+  print("Špatný tah, zadej symbol znovu")
+elif symbol_hrac == symbol_pocitac:
+  print(f"Remíza, tah počítače byl {symbol_pocitac} a tvůj tah byl {symbol_hrac}")
+elif (symbol_hrac == "kámen" and symbol_pocitac == "papír") or (symbol_hrac =="papír" and symbol_pocitac == "nůžky") or (symbol_hrac == "nůžky" and symbol_pocitac == "kámen"):
+  print(f"Prohrál si, tah počítače byl {symbol_pocitac} a tvůj tah byl {symbol_hrac}")
+else:
+  print(f"Vyhrál si, tah počítače byl {symbol_pocitac} a tvůj tah byl {symbol_hrac}")
+
+print("Konec hry")
+
+
+
+
+2. Napište program, který:
+
+1. načte od uživatele login a heslo
+2. pokud je dvojice (login, heslo) v seznamu administrátorů, tak program vypíše hlášku: uděluji práva na úpravu ceny
+3. pokud je dvojice (login, heslo) v seznamu uživatelů, tak program vypíše hlášku: uděluji práva na prohlížení produktů
+4. pokud dvojice není ani v jednom ze seznamů, tak program vypíše hlášku: chcete se registrovat?
+
+Pokud uživatel přijme registraci napsáním hlásky "ano" na klávesnici, tak program ho zařadí do seznamu uživatelů. V opačném případě se s ním program rozloučí.
+
+
+administratori = [("Admin", "Admin"), ("Reditel", "heslo")]
+uzivatele = [("Pepa", "123"), ("Jana", "t6Zyx3"), ("Richard", "risa55")]
+
+login = input("Vepiš login: ")
+heslo = input("Vepiš heslo: ")
+
+if (login, heslo) in administratori:
+    print("Uděluji práva na úpravu ceny")
+elif (login, heslo) in uzivatele:
+    print("Uděluji práva na prohlížení produktů")
+else:
+   odpoved = input("Chcete se registrovat? (ano/ne): ")
+   if odpoved == "ano":
+     uzivatele.append( ("login, heslo") )
+     print("Registrace byla úspěšná")
+   else:
+     print("Děkujeme za návštěvu")
