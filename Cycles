@@ -1,0 +1,45 @@
+1. Napište program, který při zadani ľubovelného vstupu z klávesnice vylosuje s předem připraveného seznamu otázek náhodnou otázku pro studenta. Při každém dalším vstupu se vylosuje další otázka a otázky se nesmí nikdy opakovat. Program skončí, jakmile bude seznam otázek prázdný.
+
+import random
+
+otazky = ["A","B","C","D","E"]
+
+while otazky:
+  Vstup = input("Zadejte libovolný znak pro vylosování otázky:")
+  print(vstup)
+  index = random.randint(0, len(otazky) - 1)
+  otazka = otazky[index]
+  print(f"Otázka: {otazka}")
+  otazky.remove(otazka)
+
+print(f"Seznam otázek je prázdný.")
+
+
+2. Napište program, který pomocí FOR IN projede zadaný text a zjistí, kolik negativních nebo pozitivních slov se v textu nachází. Připravte si seznam pozitivních a seznam negativních slov. Poté uživatel zadá větu, kterou slovo po slově analyzujte. Pokud se aktuálně zkoumané slovo nachází v seznamu pozitivních slov, pak přidejte 1 k náladě. Pokud v negativních, pak 1 uberte. Na konci programu vyhodnoťte, zda má uživatel spíše negativní nebo pozitivní náladu.
+
+pozitivni_slova = ["dobrý", "skvělý", "úžasný",  "šťastný",  "laskavý"]
+negativni_slova = ["špatný", "strašný", "hnusný", "ošklivý", "smutný"]
+vstupni_text = input("Zadejte větu: ")
+
+seznam_slov = vstupni_text.split(" ")
+
+pocet_pozitivnich = 0
+pocet_negativnich = 0
+
+
+for slovo in seznam_slov:
+  if slovo in pozitivni_slova:
+    pocet_pozitivnich += 1
+  elif slovo in negativni_slova:
+    pocet_negativnich += 1
+
+if pocet_pozitivnich > pocet_negativnich:
+  print("Máte pozitivní náladu.")
+elif pocet_negativnich > pocet_pozitivnich:
+  print("Máte negativní náladu.")
+else:
+  print("Věta neobsahovala ž")
+
+
+print(f"Počet pozitivních slov: {pocet_pozitivnich}")
+print(f"Počet negativních slov: {pocet_negativnich}")
