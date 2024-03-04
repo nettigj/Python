@@ -1,0 +1,26 @@
+1. Napište program, který přijme počet palet salámu, který chcete koupit. Program spočítá a vypíše na obrazovku, kolik bude stát požadovaný počet palet salámu. Cena za paletu je fixní a je součástí programu jako tzv. konstanta (velká písmena).
+CENA_ZA_PALETU = 12  # Kc
+
+pocet_palet_salamu = int(input ("Kolik palet salámu chcete? "))
+
+celkova_cena = pocet_palet_salamu * CENA_ZA_PALETU
+
+vypis = f"{pocet_palet_salamu} palet salámu ({CENA_ZA_PALETU} Kč za paletu) stojí {celkova_cena} Kč."
+print(vypis)
+
+
+2. BMI
+vyska = float (input ("Jaká je vaše výška v metrech? "))
+hmotnost = float (input ("Jaká je vaše hmotnost v kg? "))
+
+bmi = (round (hmotnost / vyska ** 2 , 2) )
+
+print (f"Vaše BMI při výšce {vyska} m a hmotnosti {hmotnost} kg je {bmi}")
+
+3. Napište program, který přijme od uživatele základní vklad, úrokovou sazbu a počet úrokovacích období. Program spočítá, kolik si za úrokovací období celkem uspoříte (výsledný kapitál).
+zakladni_vklad = int (input ("Napište základní vklad: "))
+urokova_sazba = float (input ("Napište úrokovou sazbu: "))
+urokovaci_obdobi = int (input ("Napište počet úrokovacích období (počet let): "))
+
+vysledny_kapital = (int((zakladni_vklad * (urokova_sazba / 100) ) * urokovaci_obdobi) + (zakladni_vklad))
+print (f"Při základním vkladu {zakladni_vklad}, úrokové sazbě {urokova_sazba} % a {urokovaci_obdobi} urokovací období je výsledný kapital {vysledny_kapital} Kč")
