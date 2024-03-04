@@ -1,0 +1,48 @@
+Programujete novou aplikaci pro firmu Apple s názvem IMazlíček. Šéf vám zadá za úkol vytvořit třídu, do které se budou ukládat informace o domácím mazlíčkovi. Napište třídu Mazlicek, která má následující atributy:
+
+
+1.   Jméno mazlíčka (řetězec)
+2.   Jméno majitelů mazlíčka (seznam řetězců)
+3.   Druh zvířete (řetězec)
+4.   Hlad (v procentech - vymyslete, jak na to)
+5.   Vyvenčen (ano/ne)
+
+V konstruktoru třídy se nastaví pouze jméno, seznam majitelů a druh zvířete. Hlad se nastaví automaticky na 100% a vyvenčení na NE.
+
+Třída bude umět následující metody:
+1. Vyvenčení() - nastaví atribut vyvenčen na ANO
+2. Krmení(množství) - snízí procenta hladu podle vloženého množství
+3. Spánek() - vyresetuje hlad na 100% a vyvenčení na NE
+"""
+
+class IMazlicek:
+    def __init__(self, jmeno, majitele, druh):
+        self.jmeno = jmeno
+        self.majitele = majitele
+        self.druh = druh
+        self.hlad = 100
+        self.vyvencen = {"Ano", "Ne"}
+
+    def Vyvenceni(self):
+        self.vyvencen = "Ano"
+
+    def Krmeni(self, mnozstvi):
+        self.hlad -= mnozstvi
+
+    def Spanek(self):
+        self.hlad = 100
+        self.vyvencen = "Ne"
+
+
+mazlicek = IMazlicek("Rex", ["Jana", "Petr"], "Pes")
+
+
+mazlicek.Vyvenceni()
+print(f"Vyvenčen: {mazlicek.vyvencen}")
+
+mazlicek.Krmeni(30)
+print(f"Hlad: {mazlicek.hlad}%")
+
+mazlicek.Spanek()
+print(f"Vyvenčen: {mazlicek.vyvencen}")
+print(f"Hlad: {mazlicek.hlad}%")
